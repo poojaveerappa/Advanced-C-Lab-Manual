@@ -15,8 +15,33 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main()
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    switch(n)
+    {
+        case 1: printf("one"); break;
+        case 2: printf("two"); break;
+        case 3: printf("three"); break;
+        case 4: printf("four"); break;
+        case 5: printf("five"); break;
+        case 6: printf("six"); break;
+        case 7: printf("seven"); break;
+        case 8: printf("eight"); break;
+        case 9: printf("nine"); break;
+        default: printf("invalid number");
+    }
+
+    return 0;
+}
+```
 
 
 
@@ -24,7 +49,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="277" height="63" alt="647097819-6db83912-a36f-42e9-91af-f664eb3ce60d" src="https://github.com/user-attachments/assets/8ef17ea7-d95d-4bbb-9c9e-953497040402" />
+
 
 
 
@@ -46,16 +72,44 @@ Algorithm:
 6.	End
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main()
+{
+    int n, i, digit;
+    int freq[4] = {0, 0, 0, 0};
 
+    for(i = 0; i < 10; i++)
+    {
+        scanf("%d", &n);
+
+        while(n > 0)
+        {
+            digit = n % 10;
+
+            if(digit >= 0 && digit <= 3)
+                freq[digit]++;
+
+            n = n / 10;
+        }
+    }
+
+    for(i = 0; i < 4; i++)
+    {
+        printf("%d ", freq[i]);
+    }
+
+    return 0;
+}
+```
 
 
 
 Output:
 
+<img width="452" height="118" alt="647098343-1f4bf675-2630-4b7a-b51b-fd382af74326" src="https://github.com/user-attachments/assets/4ddaaa6f-d92d-471a-bab1-f58529e22bae" />
 
-//paste your output here
 
 
 
@@ -84,15 +138,56 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *a, char *b)
+{
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void permute(char str[], int left, int right)
+{
+    int i;
+
+    if(left == right)
+    {
+        printf("%s\n", str);
+        return;
+    }
+
+    for(i = left; i <= right; i++)
+    {
+        swap(&str[left], &str[i]);
+        permute(str, left + 1, right);
+        swap(&str[left], &str[i]);
+    }
+}
+
+int main()
+{
+    char str[20];
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    permute(str, 0, strlen(str) - 1);
+
+    return 0;
+}
+```
 
 
 
 
 Output:
 
+<img width="207" height="125" alt="647098628-e4f5c995-0b31-4ba9-8ff5-ee2434fc2aa2" src="https://github.com/user-attachments/assets/3bcd6106-7db6-4cbe-84a6-e4b565824a52" />
 
-//paste your output here
+
 
 
 
@@ -116,16 +211,52 @@ Algorithm:
 7.	End
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main()
+{
+    int n, i, j, min, len;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    len = n * 2 - 1;
+
+    for(i = 0; i < len; i++)
+    {
+        for(j = 0; j < len; j++)
+        {
+            min = i;
+
+            if(j < min)
+                min = j;
+
+            if(len - 1 - i < min)
+                min = len - 1 - i;
+
+            if(len - 1 - j < min)
+                min = len - 1 - j;
+
+            printf("%d ", n - min);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+```
+
+
 
 
 
 
 Output:
 
+<img width="335" height="198" alt="647098768-ffe8aa3c-6607-4381-b8d9-2ed7f3dbf506" src="https://github.com/user-attachments/assets/396af3b7-28e6-451e-9410-f0ea19e7819c" />
 
-//paste your output here
 
 
 
@@ -156,7 +287,30 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+int square()
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    return n * n;
+}
+
+int main()
+{
+    int result;
+
+    result = square();
+
+    printf("Square = %d", result);
+
+    return 0;
+}
+```
 
 
 
@@ -164,7 +318,7 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="277" height="52" alt="647098913-240a338b-46f0-470a-bdbf-51eca11e80fb" src="https://github.com/user-attachments/assets/77ef494c-2ed0-4ff8-b216-6e181a13aeff" />
 
 
 
